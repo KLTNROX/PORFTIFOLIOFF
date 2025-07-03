@@ -324,6 +324,32 @@
 </section>
 
 <script>
+  function toggleMenu() {
+    const nav = document.getElementById('indice');
+    nav.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  }
+
+  document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+
+  // Fecha o menu ao clicar em um link
+  document.querySelectorAll('#indice a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  // Fecha o menu ao clicar fora
+  document.addEventListener('click', function (e) {
+    const nav = document.getElementById('indice');
+    const toggle = document.getElementById('menu-toggle');
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+      nav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
