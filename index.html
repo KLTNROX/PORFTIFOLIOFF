@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Portfólio – Sistema Fiscal Fácil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-       body {
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 180px;
+    }
+
+    body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 0;
       background: #f9f9f9;
-      padding-top: 180px; /* Compensa header fixo */
+      padding-top: 180px;
     }
 
-    /* Cabeçalho fixo */
     header {
       position: fixed;
       top: 0;
@@ -21,7 +26,6 @@
       background-color: #ffffff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      padding: 0px 0;
       text-align: center;
     }
 
@@ -34,100 +38,94 @@
     .header-content img {
       max-width: 200px;
       height: auto;
-      margin-bottom: 0px;
       cursor: pointer;
     }
-/* cabeçalho "portfolio de funcionalidades" */
+
     .header-content h1 {
       margin: 0;
       padding: 6px 16px;
       background-color: #ffffff;
-      color: rgb(0, 0, 0);
+      color: #000;
       border-radius: 4px;
       font-size: 1.2em;
     }
-    
 
-    /* Botão de menu (mobile) */
     #menu-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-  background-color: #a70808;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  font-size: 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-    #menu-toggle:hover {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
       background-color: #a70808;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      font-size: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    /* Menu lateral */
-   nav#indice {
-  position: fixed;
-  top: 180px;
-  left: 0;
-  width: 220px;
-  height: calc(100% - 180px);
-  background: #a70808;
-  border-right: 1px solid #ddd;
-  padding: 20px 15px;
-  overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  font-family: 'Segoe UI', sans-serif;
-}
+    #menu-toggle:hover {
+      background-color: #870606;
+    }
 
-nav#indice h2 {
-  font-size: 14px;
-  color: #ffffff;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+    nav#indice {
+      position: fixed;
+      top: 180px;
+      left: 0;
+      width: 250px;
+      height: calc(100% - 180px);
+      background: #a70808;
+      border-right: 1px solid #ddd;
+      padding: 20px 15px;
+      overflow-y: auto;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      font-family: 'Segoe UI', sans-serif;
+      transition: left 0.3s ease;
+    }
 
-nav#indice ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    nav#indice h2 {
+      font-size: 14px;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-nav#indice ul li {
-  margin-bottom: 10px;
-}
+    nav#indice ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-nav#indice ul li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease;
-}
+    nav#indice ul li {
+      margin-bottom: 10px;
+    }
 
-nav#indice ul li a:hover {
-  background-color: #eaeaea;
-  color: #000000;
-}
+    nav#indice ul li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
 
-nav#indice ul li a span.icon {
-  font-size: 18px;
-  width: 24px;
-  text-align: center;
-}
+    nav#indice ul li a:hover {
+      background-color: #eaeaea;
+      color: #000000;
+    }
 
-    /* Conteúdo */
- 
+    nav#indice ul li a span.icon {
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
 
     .feature {
       background: #ffffff;
@@ -135,21 +133,19 @@ nav#indice ul li a span.icon {
       padding: 20px;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      border-radius: 0;
-      box-shadow: none;
     }
 
     .feature h3 {
       color: #a70808;
     }
-    .feature h3::before {
-  content: "";
-  display: block;
-  height: 180px; /* altura do seu header fixo */
-  margin-top: -180px;
-  visibility: hidden;
-}
 
+    .feature h3::before {
+      content: "";
+      display: block;
+      height: 180px;
+      margin-top: -180px;
+      visibility: hidden;
+    }
 
     .feature img {
       width: 100%;
@@ -167,20 +163,14 @@ nav#indice ul li a span.icon {
     }
 
     section {
-  margin-left: 250px; /* igual ou maior que a largura do menu */
-  padding: 20px;
-  
-}
+      margin-left: 250px;
+      padding: 20px;
+    }
 
-    /* Responsivo */
     @media (max-width: 768px) {
       nav#indice {
-        left: -270px;
-        transition: left 0.3s ease;
+        left: -250px;
       }
-nav#indice {
-  width: 250px;
-}
 
       nav#indice.open {
         left: 0;
@@ -199,66 +189,36 @@ nav#indice {
         padding: 20px;
       }
     }
-    @media print {
-  header {
-    position: static !important;
-    box-shadow: none;
-  }
-
-  body {
-    padding-top: 0 !important;
-  }
-
-  nav#indice {
-    position: static !important;
-    height: auto !important;
-    box-shadow: none;
-    border: none;
-    margin-bottom: 20px;
-  }
-
-  section {
-    margin-left: 0 !important;
-  }
-
-  #menu-toggle {
-    display: none !important;
-  }
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 180px;
-}
-
   </style>
 </head>
 <body>
 
   <header id="topo">
-  <div class="header-content">
-    <a href="#" onclick="scrollToTop(); return false;">
-      <img src="imagens/LOGO.png" alt="Logo da Empresa">
-    </a>
-    <h1>Portfólio de Funcionalidades</h1>
-  </div> <!-- FECHAMENTO CORRETO DO DIV -->
-</header>
+    <div class="header-content">
+      <a href="#" onclick="scrollToTop(); return false;">
+        <img src="imagens/LOGO.png" alt="Logo da Empresa">
+      </a>
+      <h1>Portfólio de Funcionalidades</h1>
+    </div>
+  </header>
 
-  <button id="menu-toggle" onclick="toggleMenu()">☰</button>
-  <!-- Menu lateral -->
+  <button id="menu-toggle">☰</button>
+
   <nav id="indice">
-  <h2>🧩 Recursos Disponíveis</h2>
-  <ul>
-    <li><a href="#cadastros"><span class="icon">🗂️</span> Cadastros</a></li>
-    <li><a href="#vendas"><span class="icon">🛒</span> Tela de Vendas</a></li>
-    <li><a href="#financeiro"><span class="icon">💰</span> Controle Financeiro</a></li>
-    <li><a href="#faturamento"><span class="icon">📦</span> Faturamento</a></li>
-    <li><a href="#notas"><span class="icon">🧾</span> Tipos de Notas</a></li>
-    <li><a href="#estoque"><span class="icon">📊</span> Estoque</a></li>
-    <li><a href="#entrada"><span class="icon">📥</span> Entrada de Produtos</a></li>
-    <li><a href="#xml"><span class="icon">📤</span> Envio de XML</a></li>
-    <li><a href="#publico"><span class="icon">🎯</span> Público-Alvo</a></li>
-  </ul>
-</nav>  
+    <h2>🧩 Recursos Disponíveis</h2>
+    <ul>
+      <li><a href="#cadastros"><span class="icon">🗂️</span> Cadastros</a></li>
+      <li><a href="#vendas"><span class="icon">🛒</span> Tela de Vendas</a></li>
+      <li><a href="#financeiro"><span class="icon">💰</span> Controle Financeiro</a></li>
+      <li><a href="#faturamento"><span class="icon">📦</span> Faturamento</a></li>
+      <li><a href="#notas"><span class="icon">🧾</span> Tipos de Notas</a></li>
+      <li><a href="#estoque"><span class="icon">📊</span> Estoque</a></li>
+      <li><a href="#entrada"><span class="icon">📥</span> Entrada de Produtos</a></li>
+      <li><a href="#xml"><span class="icon">📤</span> Envio de XML</a></li>
+      <li><a href="#publico"><span class="icon">🎯</span> Público-Alvo</a></li>
+    </ul>
+  </nav>
+ 
   <section>
   <h2>🧾 Sistema FISCAL FÁCIL</h2>
 
@@ -364,46 +324,44 @@ html {
 </section>
 
 <script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function toggleMenu() {
-    const nav = document.getElementById('indice');
-    nav.classList.toggle('open');
-    document.body.classList.toggle('menu-open');
-  }
-
-  window.addEventListener('load', () => {
-    // Ajusta altura do menu com base no header
-    const header = document.querySelector('header');
-    const nav = document.getElementById('indice');
-    if (header && nav) {
-      const headerHeight = header.offsetHeight;
-      nav.style.top = headerHeight + 'px';
-      nav.style.height = `calc(100% - ${headerHeight}px)`;
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Força rolagem para o topo ao recarregar
-    window.scrollTo(0, 0);
-  });
-
-  // Fecha o menu ao clicar em qualquer link dentro dele
-  document.getElementById('indice').addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-      this.classList.remove('open');
-      document.body.classList.remove('menu-open');
+    function toggleMenu() {
+      const nav = document.getElementById('indice');
+      nav.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
     }
-  });
 
-  // Fecha o menu ao clicar fora dele
-  document.addEventListener('click', function (e) {
-    const menu = document.getElementById('indice');
-    const toggle = document.getElementById('menu-toggle');
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.classList.remove('open');
-      document.body.classList.remove('menu-open');
-    }
-  });
-</script>
+    document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+
+    document.getElementById('indice').addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        this.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('indice');
+      const toggle = document.getElementById('menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      }
+    });
+
+    window.addEventListener('load', () => {
+      const header = document.querySelector('header');
+      const nav = document.getElementById('indice');
+      if (header && nav) {
+        const headerHeight = header.offsetHeight;
+        nav.style.top = headerHeight + 'px';
+        nav.style.height = `calc(100% - ${headerHeight}px)`;
+      }
+      window.scrollTo(0, 0);
+    });
+  </script>
 </body>
+</html>
