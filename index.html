@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfólio – Sistema Fiscal Fácil</title>
+  <style>
+       body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 0;
+      background: #f9f9f9;
+      padding-top: 180px; /* Compensa header fixo */
+    }
+
+    /* Cabeçalho fixo */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 0px 0;
+      text-align: center;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-content img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 0px;
+      cursor: pointer;
+    }
+/* cabeçalho "portfolio de funcionalidades" */
+    .header-content h1 {
+      margin: 0;
+      padding: 6px 16px;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border-radius: 4px;
+      font-size: 1.2em;
+    }
+    
+
+    /* Botão de menu (mobile) */
+    #menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  background-color: #a70808;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+    #menu-toggle:hover {
+      background-color: #a70808;
+    }
+
+    /* Menu lateral */
+   nav#indice {
+  position: fixed;
+  top: 180px;
+  left: 0;
+  width: 220px;
+  height: calc(100% - 180px);
+  background: #a70808;
+  border-right: 1px solid #ddd;
+  padding: 20px 15px;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+nav#indice h2 {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+nav#indice ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#indice ul li {
+  margin-bottom: 10px;
+}
+
+nav#indice ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav#indice ul li a:hover {
+  background-color: #eaeaea;
+  color: #000000;
+}
+
+nav#indice ul li a span.icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+    /* Conteúdo */
+ 
+
+    .feature {
+      background: #ffffff;
+      margin: 0 0 20px 0;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .feature h3 {
+      color: #a70808;
+    }
+    .feature h3::before {
+  content: "";
+  display: block;
+  height: 180px; /* altura do seu header fixo */
+  margin-top: -180px;
+  visibility: hidden;
+}
+
+
+    .feature img {
+      width: 100%;
+      max-width: 800px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #a70808;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    section {
+  margin-left: 250px; /* igual ou maior que a largura do menu */
+  padding: 20px;
+  
+}
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      nav#indice {
+        left: -270px;
+        transition: left 0.3s ease;
+      }
+
+      nav#indice.open {
+        left: 0;
+      }
+
+      #menu-toggle {
+        display: block;
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      section {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+    @media print {
+  header {
+    position: static !important;
+    box-shadow: none;
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+
+  nav#indice {
+    position: static !important;
+    height: auto !important;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  section {
+    margin-left: 0 !important;
+  }
+
+  #menu-toggle {
+    display: none !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 180px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header id="topo">
+    <div class="header-content">
+      <a href="#" onclick="scrollToTop(); return false;">
+        <img src="imagens/LOGO.png" alt="Logo da Empresa">
+      </a>
+    <h1>Portfólio de Funcionalidades</h1>
+  </header>
+  <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- Menu lateral -->
+  <nav id="indice">
+  <h2>🧩 Recursos Disponíveis</h2>
+  <ul>
+    <li><a href="#cadastros"><span class="icon">🗂️</span> Cadastros</a></li>
+    <li><a href="#vendas"><span class="icon">🛒</span> Tela de Vendas</a></li>
+    <li><a href="#financeiro"><span class="icon">💰</span> Controle Financeiro</a></li>
+    <li><a href="#faturamento"><span class="icon">📦</span> Faturamento</a></li>
+    <li><a href="#notas"><span class="icon">🧾</span> Tipos de Notas</a></li>
+    <li><a href="#estoque"><span class="icon">📊</span> Estoque</a></li>
+    <li><a href="#entrada"><span class="icon">📥</span> Entrada de Produtos</a></li>
+    <li><a href="#xml"><span class="icon">📤</span> Envio de XML</a></li>
+    <li><a href="#publico"><span class="icon">🎯</span> Público-Alvo</a></li>
+  </ul>
+</nav>  
+  <section>
+  <h2>🧾 Sistema FISCAL FÁCIL</h2>
+
+  <div class="feature">
+    <h3 id="cadastros">🗂️ Cadastros Disponíveis com busca de CEP e consulta de CPF/CNPJ para Clientes e Fornecedores</h3>
+    
+      <ul><li><strong>Clientes/Fornecedores</strong></li></ul>
+      <img src="imagens/CLIENTESFF.gif" alt="Cadastro de Clientes">
+      <ul><li><strong>Produtos/Serviços</strong></li></ul>
+      <img src="imagens/PRODUTOSFF.png" alt="Cadastro de Produtos">
+      <ul><li><strong>Condutores/Motoristas</strong></li></ul>
+      <img src="imagens/CONDUTORESFF.png" alt="Cadastro de Condutores">
+      <ul><li><strong>Intermediador</strong></li></ul>
+      <img src="imagens/INTERMEDIADOR.png" alt="Cadastro de Intermediador">
+      <ul><li><strong>Transportadoras</strong></li></ul>
+      <img src="imagens/TRANSPORTADORA.png" alt="Cadastro de Transportadoras">
+      <ul><li><strong>Veículos</strong></li></ul>
+      <img src="imagens/VEICULOS.png" alt="Cadastro de Veículos">
+      <ul><li><strong>Funcionários/Vendedores</strong></li></ul>
+      <img src="imagens/VEICULOS.png" alt="Cadastro de Funcionários/Vendedores">
+    </ul>
+  </div>
+
+  <div class="feature">
+    <h3 id="vendas">🛒 Tela de Vendas</h3>
+     <ul><li><strong>Movimento de venda</strong></li></ul>
+      <img src="imagens/MOVIMENTOVENDA.png" alt="movimento venda">
+      <ul><li><strong>Venda PDV</strong></li></ul>
+      <img src="imagens/PDV.png" alt="venda pdv">
+    </ul>
+  </div>
+
+  <div class="feature">
+    <h3 id="financeiro">💰 Controle Financeiro</h3>
+    <ul><li><strong>Consultas na tela de contas a pagar</strong></li></ul>
+    <img src="imagens/APAGAR.png" alt="Contas a pagar">
+    <ul><li><strong>Consultas na tela de conta a receber</strong></li></ul>
+    <img src="imagens/ARECEBER.png" alt="Contas a receber">
+    <ul><li><strong>Baixas de parcelas</strong></li></ul>
+    <img src="imagens/BAIXAPARCELA.png" alt="Baixa de parcela">
+    <ul><li><strong>Impressão de recibos</strong></li></ul>
+    <img src="imagens/recibo.png" alt="recibo">
+    <ul><li><strong>Controle de caixa com lançamentos (suprimento) e retiradas (sangria)</strong></li></ul>
+    <img src="imagens/CONTROLECAIXA.png" alt="CAIXA">
+    <ul><li><strong>Relatório de caixa</strong></li></ul>
+    <img src="imagens/CAIXA.png" alt="financeiro">
+    ul><li><strong>Relatório financeiro com recebimentos/pagamentos por período</strong></li></ul>
+    <img src="imagens/FINANCEIRO.png" alt="financeiro">
+  </div>
+
+  <div class="feature">
+    <h3 id="faturamento">📦 Opções de Faturamento</h3>
+    <li><strong>Venda</strong></li></ul>
+    <img src="imagens/VENDA.png" alt="venda">
+    <ul><li><strong>Orçamento</strong></li></ul>
+    <img src="imagens/ORCAMENTO.png" alt="Orçamento">
+    <ul><li><strong>Pedido</strong></li></ul>
+    <img src="imagens/PEDIDO.png" alt="pedido">
+    <ul><li><strong>Ordem de Serviço</strong></li></ul>
+    <img src="imagens/ORDEM DE SERVIÇO.png" alt="ordem de serviço">
+    <ul><li><strong>Outros</strong></li></ul>
+    <img src="imagens/OUTROS.png" alt="venda">
+  </div>
+
+  <div class="feature">
+    <h3 id="notas">🧾 Tipos de Notas Emitidas</h3>
+     <p>Emissão de NFE, NFCE, MDFE, CTE/CTE-OS e SAT/CF-e.</p>
+    <img src="imagens/NOTAS.png" alt="Notas Emitidas">
+  </div>
+
+  <div class="feature">
+    <h3 id="estoque">📊 Controle de Estoque</h3>
+    <p>O controle de estoque é considerado básico. É possível cadastrar a quantidade de cada produto e, conforme as vendas forem realizadas, o sistema abate automaticamente a quantidade vendida. Também há um relatório de produtos com:</p>
+    <ul>
+      <li>Quantidade em estoque</li>
+      <li>Valor de custo e valor total de custo</li>
+      <li>Valor de venda e valor total de venda</li>
+      <img src="imagens/estoque.png" alt="estoque">
+    </ul>
+  </div>
+
+  <div class="feature">
+    <h3 id="entrada">📥 Entrada de Produtos</h3>
+    <li><strong>Pela tela de movimento (ENTRADA), COMPRA – inserção manual dos produtos e valores</strong></li></ul>
+    <img src="imagens/compra.png" alt="compra">
+    <li><strong>Pela tela de cadastro de produtos – inserção de produtos e estoque via XML (usado apenas se os produtos ainda não estiverem cadastrados)</strong></li></ul>
+    <img src="imagens/importar.png" alt="importar">
+    
+  </div>
+
+  <div class="feature">
+    <h3 id="xml">📤 Envio de XML para o Contador</h3>
+    <ul><li><strong>Pelo aplicativo FISCAL FÁCIL, através do menu “CONTÁBIL”</strong></li></ul>
+    <img src="imagens/CONTABIL.png" alt="CONTÁBIL">
+    <ul><li><strong>Pelo site <strong>www.portaldocontador.com</strong></li></ul>
+    <img src="imagens/PORTAL.png" alt="PORTAL">
+  </div>
+
+  <div class="feature">
+    <h3 id="publico">🎯 Público-Alvo</h3>
+    <p>O sistema FISCAL FÁCIL é voltado para pequenas e médias empresas que buscam agilidade e menos burocracia, sem abrir mão de controle e gestão do negócio.</p>
+  </div>
+</section>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleMenu() {
+    const nav = document.getElementById('indice');
+    nav.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  }
+
+  window.addEventListener('load', () => {
+    // Ajusta altura do menu com base no header
+    const header = document.querySelector('header');
+    const nav = document.getElementById('indice');
+    if (header && nav) {
+      const headerHeight = header.offsetHeight;
+      nav.style.top = headerHeight + 'px';
+      nav.style.height = `calc(100% - ${headerHeight}px)`;
+    }
+
+    // Força rolagem para o topo ao recarregar
+    window.scrollTo(0, 0);
+  });
+
+  // Fecha o menu ao clicar em qualquer link dentro dele
+  document.getElementById('indice').addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      this.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+
+  // Fecha o menu ao clicar fora dele
+  document.addEventListener('click', function (e) {
+    const menu = document.getElementById('indice');
+    const toggle = document.getElementById('menu-toggle');
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+</script>
+</body>
