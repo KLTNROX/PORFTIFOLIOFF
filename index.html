@@ -178,6 +178,9 @@ nav#indice ul li a span.icon {
         left: -270px;
         transition: left 0.3s ease;
       }
+nav#indice {
+  width: 250px;
+}
 
       nav#indice.open {
         left: 0;
@@ -232,14 +235,15 @@ html {
 <body>
 
   <header id="topo">
-    <div class="header-content">
-      <a href="#" onclick="scrollToTop(); return false;">
-        <img src="imagens/LOGO.png" alt="Logo da Empresa">
-      </a>
+  <div class="header-content">
+    <a href="#" onclick="scrollToTop(); return false;">
+      <img src="imagens/LOGO.png" alt="Logo da Empresa">
+    </a>
     <h1>Portfólio de Funcionalidades</h1>
-  </header>
-  <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div> <!-- FECHAMENTO CORRETO DO DIV -->
+</header>
 
+  <button id="menu-toggle" onclick="toggleMenu()">☰</button>
   <!-- Menu lateral -->
   <nav id="indice">
   <h2>🧩 Recursos Disponíveis</h2>
