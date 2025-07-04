@@ -15,13 +15,13 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 0;
       background: #f9f9f9;
-      padding-top: 180px;
+      padding-top: 180px; /* Compensa header fixo */
     }
-
+    
     header {
       position: fixed;
       top: 0;
@@ -78,61 +78,60 @@
     }
 
     nav#indice {
-      position: fixed;
-      top: 180px;
-      left: 0;
-      width: 250px;
-      height: calc(100% - 180px);
-      background: #a70808;
-      border-right: 1px solid #ddd;
-      padding: 20px 15px;
-      overflow-y: auto;
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
-      z-index: 1000;
-      font-family: 'Segoe UI', sans-serif;
-      transition: left 0.3s ease;
-    }
+  position: fixed;
+  top: 180px;
+  left: 0;
+  width: 250px;
+  height: calc(100% - 180px);
+  background: #a70808;
+  border-right: 1px solid #ddd;
+  padding: 20px 15px;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    nav#indice h2 {
-      font-size: 14px;
-      color: #ffffff;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+nav#indice h2 {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-    nav#indice ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+nav#indice ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    nav#indice ul li {
-      margin-bottom: 10px;
-    }
+nav#indice ul li {
+  margin-bottom: 10px;
+}
 
-    nav#indice ul li a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
+nav#indice ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 
-    nav#indice ul li a:hover {
-      background-color: #eaeaea;
-      color: #000000;
-    }
+nav#indice ul li a:hover {
+  background-color: #eaeaea;
+  color: #000000;
+}
 
-    nav#indice ul li a span.icon {
-      font-size: 18px;
-      width: 24px;
-      text-align: center;
-    }
+nav#indice ul li a span.icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
 
     .feature {
       background: #ffffff;
@@ -171,12 +170,12 @@
 
     section {
       margin-left: 250px;
-      padding: 20px;
+      padding: 0px;
     }
 
     @media (max-width: 768px) {
       nav#indice {
-        left: -260px;
+        left: -270px;
       }
 
       nav#indice.open {
@@ -191,16 +190,23 @@
         overflow: hidden;
       }
 
-      section {
-        margin-left: 0;
-        padding: 20px;
-      }
+      
     }
-    .titulo-sistema {
+   
+.titulo-sistema {
   margin-left: 20px;
   color: #a70808;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+.titulo-sistema i {
+  font-size: 28px;
+  vertical-align: middle;
+}
+
   </style>
 </head>
 <body>
@@ -217,7 +223,7 @@
   <button id="menu-toggle">☰</button>
 
   <nav id="indice">
-    <h2 class="titulo-sistema"><i class="fa-solid fa-list"></i> Recursos Disponíveis</h2>
+  <h2><i class="fa-solid fa-list-check"></i> Recursos Disponíveis</h2>
     <ul>
       <li><a href="#cadastros"><span class="icon"><i class="fa-solid fa-pen-to-square"></i></span> Cadastros</a></li>
       <li><a href="#vendas"><span class="icon"><i class="fa-solid fa-cart-arrow-down"></i></span> Tela de Vendas</a></li>
