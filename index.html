@@ -81,7 +81,7 @@
   position: fixed;
   top: 180px;
   left: 0;
-  width: 220px;
+  width: 250px;
   height: calc(100% - 180px);
   background: #a70808;
   border-right: 1px solid #ddd;
@@ -181,6 +181,14 @@ nav#indice ul li a span.icon {
       nav#indice.open {
         left: 0;
       }
+section {
+    margin-left: 0 !important; /* <-- ESSENCIAL */
+    padding: 20px;
+  }
+body.menu-open section {
+    margin-left: 250px; /* Reposiciona o conteúdo quando o menu está aberto */
+  }
+
 
       #menu-toggle {
         display: block;
@@ -342,70 +350,48 @@ nav#indice ul li a span.icon {
 </section>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById('indice');
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('indice');
+  const body = document.body;
+
+  // Abre/fecha o menu ao clicar no botão ☰
+  menuToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
-    document.body.classList.toggle('menu-open');
-  }
+    body.classList.toggle('menu-open');
+  });
 
-  document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
-
-  // Fecha o menu ao clicar em um link
+  // Fecha o menu ao clicar em um link do menu
   document.querySelectorAll('#indice a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
-      document.body.classList.remove('menu-open');
+      body.classList.remove('menu-open');
     });
   });
 
-  // Fecha o menu ao clicar fora
+  // Fecha o menu ao clicar fora dele
   document.addEventListener('click', function (e) {
-    const nav = document.getElementById('indice');
-    const toggle = document.getElementById('menu-toggle');
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
       nav.classList.remove('open');
-      document.body.classList.remove('menu-open');
+      body.classList.remove('menu-open');
     }
   });
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Ajusta altura do menu com base no cabeçalho
+  window.addEventListener('load', () => {
+    const header = document.querySelector('header');
+    if (header && nav) {
+      const headerHeight = header.offsetHeight;
+      nav.style.top = headerHeight + 'px';
+      nav.style.height = `calc(100% - ${headerHeight}px)`;
     }
+    window.scrollTo(0, 0);
+  });
 
-    function toggleMenu() {
-      const nav = document.getElementById('indice');
-      nav.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    }
+  // Função para rolar para o topo
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
-    document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
-
-    document.getElementById('indice').addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        this.classList.remove('open');
-        document.body.classList.remove('menu-open');
-      }
-    });
-
-    document.addEventListener('click', function (e) {
-      const menu = document.getElementById('indice');
-      const toggle = document.getElementById('menu-toggle');
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('open');
-        document.body.classList.remove('menu-open');
-      }
-    });
-
-    window.addEventListener('load', () => {
-      const header = document.querySelector('header');
-      const nav = document.getElementById('indice');
-      if (header && nav) {
-        const headerHeight = header.offsetHeight;
-        nav.style.top = headerHeight + 'px';
-        nav.style.height = `calc(100% - ${headerHeight}px)`;
-      }
-      window.scrollTo(0, 0);
-    });
-  </script>
 </body>
 </html>
