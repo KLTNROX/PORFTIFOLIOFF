@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Portfólio – Sistema Fiscal Fácil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
   <style>
     html {
       scroll-behavior: smooth;
@@ -192,6 +196,11 @@
         padding: 20px;
       }
     }
+    .titulo-sistema {
+  margin-left: 20px;
+  color: #a70808;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
   </style>
 </head>
 <body>
@@ -208,25 +217,25 @@
   <button id="menu-toggle">☰</button>
 
   <nav id="indice">
-    <h2>🧩 Recursos Disponíveis</h2>
+    <h2 class="titulo-sistema"><i class="fa-solid fa-list"></i> Recursos Disponíveis</h2>
     <ul>
-      <li><a href="#cadastros"><span class="icon">🗂️</span> Cadastros</a></li>
-      <li><a href="#vendas"><span class="icon">🛒</span> Tela de Vendas</a></li>
-      <li><a href="#financeiro"><span class="icon">💰</span> Controle Financeiro</a></li>
-      <li><a href="#faturamento"><span class="icon">📦</span> Faturamento</a></li>
-      <li><a href="#notas"><span class="icon">🧾</span> Tipos de Notas</a></li>
-      <li><a href="#estoque"><span class="icon">📊</span> Estoque</a></li>
-      <li><a href="#entrada"><span class="icon">📥</span> Entrada de Produtos</a></li>
-      <li><a href="#xml"><span class="icon">📤</span> Envio de XML</a></li>
-      <li><a href="#publico"><span class="icon">🎯</span> Público-Alvo</a></li>
+      <li><a href="#cadastros"><span class="icon"><i class="fa-solid fa-pen-to-square"></i></span> Cadastros</a></li>
+      <li><a href="#vendas"><span class="icon"><i class="fa-solid fa-cart-arrow-down"></i></span> Tela de Vendas</a></li>
+      <li><a href="#financeiro"><span class="icon"><i class="fa-solid fa-money-bill-transfer"></i></span> Controle Financeiro</a></li>
+      <li><a href="#faturamento"><span class="icon"><i class="fa-solid fa-shop"></i></span> Faturamento</a></li>
+      <li><a href="#notas"><span class="icon"><i class="fa-solid fa-copy"></i></span> Tipos de Notas</a></li>
+      <li><a href="#estoque"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> Estoque</a></li>
+      <li><a href="#entrada"><span class="icon"><i class="fa-solid fa-file-arrow-down"></i></span> Entrada de Produtos</a></li>
+      <li><a href="#xml"><span class="icon"><i class="fa-solid fa-upload"></i></span> Envio de XML</a></li>
+      <li><a href="#publico"><span class="icon"><i class="fa-solid fa-users-viewfinder"></i></span> Público-Alvo</a></li>
     </ul>
   </nav>
  
   <section>
-  <h2>🧾 Sistema FISCAL FÁCIL</h2>
+  <h2 class="titulo-sistema"><i class="fa-solid fa-brain"></i> Sistema FISCAL FÁCIL</h2>
 
   <div class="feature">
-    <h3 id="cadastros">🗂️ Cadastros Disponíveis com busca de CEP e consulta de CPF/CNPJ para Clientes e Fornecedores</h3>
+    <h3 id="cadastros"><i class="fa-solid fa-users"></i> Cadastros Disponíveis com busca de CEP e consulta de CPF/CNPJ para Clientes e Fornecedores</h3>
     
       <ul><li><strong>Clientes/Fornecedores</strong></li></ul>
       <img src="imagens/CLIENTESFF.gif" alt="Cadastro de Clientes">
@@ -246,7 +255,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="vendas">🛒 Tela de Vendas</h3>
+    <h3 id="vendas"><i class="fa-solid fa-cart-arrow-down"></i> Tela de Vendas</h3>
      <ul><li><strong>Movimento de venda</strong></li></ul>
       <img src="imagens/MOVIMENTOVENDA.png" alt="movimento venda">
       <ul><li><strong>Venda PDV</strong></li></ul>
@@ -255,7 +264,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="financeiro">💰 Controle Financeiro</h3>
+    <h3 id="financeiro"><i class="fa-solid fa-money-bill-transfer"></i> Controle Financeiro</h3>
     <ul><li><strong>Consultas na tela de contas a pagar</strong></li></ul>
     <img src="imagens/APAGAR.png" alt="Contas a pagar">
     <ul><li><strong>Consultas na tela de conta a receber</strong></li></ul>
@@ -273,7 +282,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="faturamento">📦 Opções de Faturamento</h3>
+    <h3 id="faturamento"><i class="fa-solid fa-shop"></i> Opções de Faturamento</h3>
     <li><strong>Venda</strong></li></ul>
     <img src="imagens/VENDA.png" alt="venda">
     <ul><li><strong>Orçamento</strong></li></ul>
@@ -287,13 +296,13 @@
   </div>
 
   <div class="feature">
-    <h3 id="notas">🧾 Tipos de Notas Emitidas</h3>
+    <h3 id="notas"><i class="fa-solid fa-copy"></i> Tipos de Notas Emitidas</h3>
      <p>Emissão de NFE, NFCE, MDFE, CTE/CTE-OS e SAT/CF-e.</p>
     <img src="imagens/NOTAS.png" alt="Notas Emitidas">
   </div>
 
   <div class="feature">
-    <h3 id="estoque">📊 Controle de Estoque</h3>
+    <h3 id="estoque"><i class="fa-solid fa-boxes-stacked"></i> Controle de Estoque</h3>
     <p>O controle de estoque é considerado básico. É possível cadastrar a quantidade de cada produto e, conforme as vendas forem realizadas, o sistema abate automaticamente a quantidade vendida. Também há um relatório de produtos com:</p>
     <ul>
       <li>Quantidade em estoque</li>
@@ -304,7 +313,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="entrada">📥 Entrada de Produtos</h3>
+    <h3 id="entrada"><i class="fa-solid fa-file-arrow-down"></i> Entrada de Produtos</h3>
     <li><strong>Pela tela de movimento (ENTRADA), COMPRA – inserção manual dos produtos e valores</strong></li></ul>
     <img src="imagens/compra.png" alt="compra">
     <li><strong>Pela tela de cadastro de produtos – inserção de produtos e estoque via XML (usado apenas se os produtos ainda não estiverem cadastrados)</strong></li></ul>
@@ -313,7 +322,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="xml">📤 Envio de XML para o Contador</h3>
+    <h3 id="xml"><i class="fa-solid fa-upload"></i> Envio de XML para o Contador</h3>
     <ul><li><strong>Pelo aplicativo FISCAL FÁCIL, através do menu “CONTÁBIL”</strong></li></ul>
     <img src="imagens/CONTABIL.png" alt="CONTÁBIL">
     <ul><li><strong>Pelo site <strong>www.portaldocontador.com</strong></li></ul>
@@ -321,7 +330,7 @@
   </div>
 
   <div class="feature">
-    <h3 id="publico">🎯 Público-Alvo</h3>
+    <h3 id="publico"><i class="fa-solid fa-users-viewfinder"></i> Público-Alvo</h3>
     <p>O sistema FISCAL FÁCIL é voltado para pequenas e médias empresas que buscam agilidade e menos burocracia, sem abrir mão de controle e gestão do negócio.</p>
   </div>
 </section>
