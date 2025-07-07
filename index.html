@@ -9,17 +9,27 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
   <style>
+    .layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+
+
+  
+}
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 180px;
     }
 
     body {
-       font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 0;
       background: #f9f9f9;
-      padding-top: 180px; /* Compensa header fixo */
+      padding-top: 155px; /* Compensa header fixo */
     }
     
     header {
@@ -43,19 +53,18 @@
       max-width: 200px;
       height: auto;
       cursor: pointer;
+      margin-bottom: 0px;
     }
 
     .header-content h1 {
       margin: 0;
       padding: 6px 16px;
       background-color: #ffffff;
-      color: #000;
+      color: rgb(0, 0, 0);
       border-radius: 4px;
       font-size: 1.2em;
     }
-* {
-  box-sizing: border-box;
-}
+
 
     #menu-toggle {
       display: none;
@@ -81,7 +90,7 @@
   position: fixed;
   top: 180px;
   left: 0;
-  width: 250px;
+  width: 220px;
   height: calc(100% - 180px);
   background: #a70808;
   border-right: 1px solid #ddd;
@@ -90,6 +99,7 @@
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   z-index: 1000;
   font-family: 'Segoe UI', sans-serif;
+  border-radius: 0 12px 12px 0;
 }
 
 nav#indice h2 {
@@ -172,6 +182,8 @@ footer {
     section {
       margin-left: 250px;
       padding: 0px;
+      margin-right: 230px; /* igual ou maior que a largura do card */
+
     }
 
     @media (max-width: 768px) {
@@ -203,23 +215,152 @@ body.menu-open section {
     }
    
 .titulo-sistema {
-  margin-left: 20px;
+ margin-left: 20px;
   color: #a70808;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   align-items: center;
   gap: 10px;
+  line-height: 1.2;
 }
 
 .titulo-sistema i {
-  font-size: 28px;
+  font-size: 24px;
   vertical-align: middle;
 }
+/* CardFF Wrapper */
+.cardff-wrapper {
+  position: fixed;
+  top: 192px;
+  right: 0;
+  z-index: 1000;
+  transition: right 0.3s ease;
+}
+
+.cardff-wrapper.collapsed {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .cardff-wrapper {
+    right: -320px;
+  }
+
+  .cardff-wrapper.open {
+    right: 0;
+  }
+
+  .cardff-wrapper.collapsed {
+    right: 0;
+  }
+
+  #cardff-toggle {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    background-color: #a70808;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* CardFF Visual */
+.cardff-card {
+  width: 220px;
+  background-color: #a70808;
+  color: white;
+  padding: 20px;
+  border-radius: 12px 0 0 12px;
+  text-align: center;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.3;
+  
+}
+
+/* Título opcional */
+.cardff-title {
+  display: block;
+  background-color: #ee0c0c;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cardff-title:hover {
+  background-color: #c40b0b;
+}
+
+/* Botões */
+.cardff-link,
+.cardff-cta {
+  display: inline-block;
+  background-color: #ee0c0c;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.cardff-link:hover,
+.cardff-cta:hover {
+  background-color: #9a1a1a;
+}
+
+/* Preço */
+.cardff-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 8px 0 16px;
+}
+
+/* Lista */
+.cardff-card ul {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.cardff-card ul li {
+  margin: 6px 0;
+  padding-left: 14px;
+  position: relative;
+  font-size: 18px;
+}
+
+.cardff-card ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+
 
   </style>
 </head>
 <body>
-
   <header id="topo">
     <div class="header-content">
       <a href="#" onclick="scrollToTop(); return false;">
@@ -228,7 +369,9 @@ body.menu-open section {
       <h1>Portfólio de Funcionalidades</h1>
     </div>
   </header>
-
+<button id="cardff-toggle">
+  <i class="fa-solid fa-dollar-sign"></i>
+</button>
   <button id="menu-toggle">☰</button>
 
   <nav id="indice">
@@ -245,13 +388,11 @@ body.menu-open section {
       <li><a href="#publico"><span class="icon"><i class="fa-solid fa-users-viewfinder"></i></span> Público-Alvo</a></li>
     </ul>
   </nav>
- 
+ <div class="layout">
   <section>
   <h2 class="titulo-sistema"><i class="fa-solid fa-brain"></i> Sistema FISCAL FÁCIL</h2>
-
   <div class="feature">
     <h3 id="cadastros"><i class="fa-solid fa-users"></i> Cadastros Disponíveis com busca de CEP e consulta de CPF/CNPJ para Clientes e Fornecedores</h3>
-    
       <ul><li><strong>Clientes/Fornecedores</strong></li></ul>
       <img src="imagens/CLIENTESFF.gif" alt="Cadastro de Clientes">
       <ul><li><strong>Produtos/Serviços</strong></li></ul>
@@ -349,6 +490,26 @@ body.menu-open section {
     <p>O sistema FISCAL FÁCIL é voltado para pequenas e médias empresas que buscam agilidade e menos burocracia, sem abrir mão de controle e gestão do negócio.</p>
   </div>
 </section>
+</div>
+<div class="cardff-wrapper">
+  <aside class="cardff-card">
+    <a class="cardff-link" href="https://www.sucessonaempresa.com/blog/categories/fiscal-facil" target="_blank">Fiscal Fácil</a>
+    <p>A partir de</p>
+    <p class="cardff-price">R$ 89,90 por mês</p>
+    <a class="cardff-cta" href="https://wa.me/556740427490?text=Olá!%20Tenho%20interesse%20na%20Solução%20ERP." target="_blank">
+      Fale com um especialista!
+    </a>
+    <ul>
+      <li>Sistema 100% em nuvem</li>
+      <li>Sem fidelidade</li>
+      <li>Emissão de notas fiscais</li>
+      <li>Controle de caixa</li>
+      <li>Aplicativo para celular</li>
+      <li>Suporte personalizado</li>
+      
+    </ul>
+  </aside>
+</div>
  <footer>
     <p>© 2025 SOLUÇÃO SISTEMAS – Todos os direitos reservados.</p>
   </footer>
@@ -394,6 +555,47 @@ body.menu-open section {
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  const cardffWrapper = document.querySelector('.cardff-wrapper');
+  const cardffToggle = document.getElementById('cardff-toggle');
+  const cardffIcon = cardffToggle.querySelector('i');
+  const cardffOverlay = document.getElementById('cardff-overlay');
+
+  {const cardffWrapper = document.querySelector('.cardff-wrapper');
+  const cardffToggle = document.getElementById('cardff-toggle');
+  const cardffIcon = cardffToggle.querySelector('i');
+
+  function toggleCardFF() {
+    const isOpen = cardffWrapper.classList.toggle('open');
+
+    // Troca o ícone
+    cardffIcon.classList.toggle('fa-dollar-sign', !isOpen);
+    cardffIcon.classList.toggle('fa-xmark', isOpen);
+  }
+
+  function closeCardFF() {
+    cardffWrapper.classList.remove('open');
+    cardffIcon.classList.remove('fa-xmark');
+    cardffIcon.classList.add('fa-dollar-sign');
+  }
+
+  // Clique no botão
+  cardffToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleCardFF();
+  });
+
+  // Clique fora do card fecha
+  document.addEventListener('click', function (e) {
+    const isInsideCard = cardffWrapper.contains(e.target);
+    const isButton = cardffToggle.contains(e.target);
+
+    if (!isInsideCard && !isButton && cardffWrapper.classList.contains('open')) {
+      closeCardFF();
+    }
+  });
+}
+
+ 
 </script>
 </body>
 </html>
