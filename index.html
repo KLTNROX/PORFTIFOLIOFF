@@ -205,7 +205,7 @@ section {
 
   }
 body.menu-open section {
-    margin-left: 250px; /* Reposiciona o conteúdo quando o menu está aberto */
+    margin-left: 0; /* Reposiciona o conteúdo quando o menu está aberto */
   }
     body {
     padding-top: 195px !important;
@@ -566,6 +566,7 @@ body.menu-open section {
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('indice');
   const body = document.body;
+  
 
   // Abre/fecha o menu ao clicar no botão ☰
   menuToggle.addEventListener('click', () => {
