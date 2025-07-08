@@ -29,7 +29,7 @@
       line-height: 1.6;
       padding: 0;
       background: #f9f9f9;
-      padding-top: 155px; /* Compensa header fixo */
+      padding-top: 150px; /* Compensa header fixo */
     }
     
     header {
@@ -186,6 +186,7 @@ footer {
 
     }
 
+
     @media (max-width: 768px) {
       nav#indice {
         left: -270px;
@@ -195,13 +196,20 @@ footer {
         left: 0;
       }
 section {
-    margin-left: 0 !important; /* <-- ESSENCIAL */
-    padding: 20px;
+    margin: 0;
+    padding: 20px 24px; /* 24px nas laterais para dar respiro */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  
+
   }
 body.menu-open section {
     margin-left: 250px; /* Reposiciona o conteúdo quando o menu está aberto */
   }
-
+    body {
+    padding-top: 195px !important;
+  }
 
       #menu-toggle {
         display: block;
@@ -213,6 +221,17 @@ body.menu-open section {
 
       
     }
+    @media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
    
 .titulo-sistema {
  margin-left: 20px;
@@ -227,14 +246,38 @@ body.menu-open section {
 .titulo-sistema i {
   font-size: 24px;
   vertical-align: middle;
+  
+}
+@media (max-width: 768px) {
+  .titulo-sistema {
+    font-size: 18px;
+    line-height: 1.1;
+    padding: 4px 12px;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .titulo-sistema i {
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+  }
 }
 /* CardFF Wrapper */
 .cardff-wrapper {
   position: fixed;
-  top: 192px;
+  top: 191px; /* igual ao menu */
   right: 0;
+  width: 275px; /* mesma largura do menu */
+  height: calc(100% - 180px); /* ocupa o restante da tela */
   z-index: 1000;
-  transition: right 0.3s ease;
+  overflow-y: auto; /* rola internamente se necessário */
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px 0 0 12px;
+  background-color: #a70808;
 }
 
 .cardff-wrapper.collapsed {
@@ -243,7 +286,8 @@ body.menu-open section {
 
 @media (max-width: 768px) {
   .cardff-wrapper {
-    right: -320px;
+    right: -330px;
+    
   }
 
   .cardff-wrapper.open {
@@ -277,15 +321,18 @@ body.menu-open section {
 
 /* CardFF Visual */
 .cardff-card {
-  width: 220px;
-  background-color: #a70808;
-  color: white;
-  padding: 20px;
-  border-radius: 12px 0 0 12px;
-  text-align: center;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-  line-height: 1.3;
-  height: calc(100% - 180px);
+      width: 100%;
+      background-color: #a70808;
+      color: white;
+      padding: 20px;
+      border-radius: 12px 0 0 12px;
+      text-align: center;
+      box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+      line-height: 1.3;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      box-sizing: border-box;
   
   
 }
@@ -495,7 +542,7 @@ body.menu-open section {
 </div>
 <div class="cardff-wrapper">
   <aside class="cardff-card">
-    <a class="cardff-link" href="https://www.sucessonaempresa.com/blog/categories/fiscal-facil" target="_blank">Fiscal Fácil</a>
+    <a class="cardff-link" href="https://www.sucessonaempresa.com/blog/categories/fiscal-facil" target="_blank">FISCAL FÁCIL</a>
     <p>A partir de</p>
     <p class="cardff-price">R$ 89,90 por mês</p>
     <a class="cardff-cta" href="https://wa.me/556740427490?text=Olá!%20Tenho%20interesse%20na%20Solução%20ERP." target="_blank">
