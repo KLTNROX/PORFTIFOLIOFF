@@ -172,7 +172,7 @@ footer {
       visibility: hidden;
     }
 
-    .feature img {
+    .feature img:not(.imagem-app) {
       width: 100%;
       max-width: 800px;
       margin-top: 10px;
@@ -405,6 +405,14 @@ body.menu-open section {
   color: #4caf50;
   font-weight: bold;
 }
+.imagem-app {
+  max-width: 300px;      /* controla o tamanho máximo */
+  width: 100%;           /* ajusta ao container */
+  height: auto;          /* mantém proporção */
+  margin-top: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
 
 
@@ -432,6 +440,7 @@ body.menu-open section {
       <li><a href="#financeiro"><span class="icon"><i class="fa-solid fa-money-bill-transfer"></i></span> Controle Financeiro</a></li>
       <li><a href="#faturamento"><span class="icon"><i class="fa-solid fa-shop"></i></span> Faturamento</a></li>
       <li><a href="#notas"><span class="icon"><i class="fa-solid fa-copy"></i></span> Tipos de Notas</a></li>
+      <li><a href="#app"><i class="fa-solid fa-mobile-screen-button"></i></span> Acesso pelo celular</a></li>
       <li><a href="#estoque"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> Estoque</a></li>
       <li><a href="#entrada"><span class="icon"><i class="fa-solid fa-file-arrow-down"></i></span> Entrada de Produtos</a></li>
       <li><a href="#xml"><span class="icon"><i class="fa-solid fa-upload"></i></span> Envio de XML</a></li>
@@ -506,6 +515,11 @@ body.menu-open section {
      <p>Emissão de NFE, NFCE, MDFE, CTE/CTE-OS e SAT/CF-e.</p>
     <img src="imagens/NOTAS.png" alt="Notas Emitidas">
   </div>
+  <div class="feature" id="app">
+      <h3><i class="fa-solid fa-mobile-screen-button"></i> Acesso pelo celular</h3>
+      <p>Acesso ao sistema via App Android ou IOS.</p>
+      <img src="imagens/appff.png" alt="app" class="imagem-app"/>
+    </div>
 
   <div class="feature">
     <h3 id="estoque"><i class="fa-solid fa-boxes-stacked"></i> Controle de Estoque</h3>
@@ -530,7 +544,7 @@ body.menu-open section {
   <div class="feature">
     <h3 id="xml"><i class="fa-solid fa-upload"></i> Envio de XML para o Contador</h3>
     <ul><li><strong>Pelo aplicativo FISCAL FÁCIL, através do menu “CONTÁBIL”</strong></li></ul>
-    <img src="imagens/CONTABIL.png" alt="CONTÁBIL">
+    <img src="imagens/CONTABIL.png" alt="CONTÁBIL" class="imagem-app"/>
     <ul><li><strong>Pelo site <strong>www.portaldocontador.com</strong></li></ul>
     <img src="imagens/PORTAL.png" alt="PORTAL">
   </div>
