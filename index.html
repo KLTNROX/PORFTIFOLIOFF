@@ -413,12 +413,48 @@ body.menu-open section {
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+/* === Botão Voltar ao Topo === */
+#btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #a70808;
+  color: white;
+  border: none;
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1200;
+  transition: opacity 0.3s ease;
+  display: none; /* Só aparece depois de rolar */
+}
+
+#btn-topo:hover {
+  background-color: #a70808;
+}
+/* Estilo só para telas maiores (desktop) */
+@media (min-width: 769px) {
+  #btn-topo {
+    background-color: #ffffff; /* azul ou qualquer outra cor */
+    color: black;
+  }
+
+  #btn-topo:hover {
+    background-color: #b8b8b8; /* cor ao passar o mouse */
+  }
+}
+
 
 
 
   </style>
 </head>
 <body>
+  <button id="btn-topo" title="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</button>
   <header id="topo">
     <div class="header-content">
       <a href="#" onclick="scrollToTop(); return false;">
@@ -443,6 +479,7 @@ body.menu-open section {
       <li><a href="#app"><i class="fa-solid fa-mobile-screen-button"></i></span> Acesso pelo celular</a></li>
       <li><a href="#estoque"><span class="icon"><i class="fa-solid fa-boxes-stacked"></i></span> Estoque</a></li>
       <li><a href="#entrada"><span class="icon"><i class="fa-solid fa-file-arrow-down"></i></span> Entrada de Produtos</a></li>
+      <li><a href="#nfrecebidas"><span class="icon"><i class="fa-solid fa-file-circle-check"></i></span> Notas Recebidas</a></li>
       <li><a href="#xml"><span class="icon"><i class="fa-solid fa-upload"></i></span> Envio de XML</a></li>
       <li><a href="#publico"><span class="icon"><i class="fa-solid fa-users-viewfinder"></i></span> Público-Alvo</a></li>
     </ul>
@@ -538,6 +575,11 @@ body.menu-open section {
     <img src="imagens/compra.png" alt="compra">
     <li><strong>Pela tela de cadastro de produtos – inserção de produtos e estoque via XML (usado apenas se os produtos ainda não estiverem cadastrados)</strong></li></ul>
     <img src="imagens/importar.png" alt="importar">
+  </div>
+  <div class="feature">
+    <h3 id="nfrecebidas"><i class="fa-solid fa-file-arrow-down"></i> Tela de Notas Recebidas</h3>
+    <p>Possibilita visualizar, baixar, imprimir e dar ciência da operação sobre as notas que foram emitidas para o CNPJ da empresa.</p>
+    <img src="imagens/NOTASRECEBIDAS.png" alt="compra">
     
   </div>
 
@@ -659,6 +701,18 @@ body.menu-open section {
     }
   });
 }
+const btnTopo = document.getElementById('btn-topo');
+
+// Mostra botão ao rolar
+window.addEventListener('scroll', () => {
+  btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+// Rola suavemente ao topo
+btnTopo.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 
  
 </script>
